@@ -10,14 +10,14 @@
 
 int main(int argc,char **argv){
 
-    ros::init(argc,argv,"UandBdetect");
+    ros::init(argc,argv,"pcd_to_ros");
     ros::NodeHandle nh;
     ros::Publisher pcl_pub=nh.advertise<sensor_msgs::PointCloud2> ("/map_result", 1);
 
 
     pcl::PointCloud<pcl::PointXYZ> cloud;
     sensor_msgs::PointCloud2 output;
-    pcl::io::loadPCDFile("/home/yao/Workspace/hdl_graph_slam_ws/src/hdl_graph_slam/ma.pcd",cloud);//修改自己pcd文件所在路径
+    pcl::io::loadPCDFile("/home/yao/Workspace/hdl_graph_slam_ws/src/hdl_graph_slam/map.pcd",cloud);//修改自己pcd文件所在路径
 
     //Convert the cloud to ROS message
 
